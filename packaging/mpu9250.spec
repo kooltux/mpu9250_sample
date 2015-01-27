@@ -1,7 +1,7 @@
 Name:           mpu9250
 Version:        1.0.0
 Release:        0
-License:        GPL
+License:        Apache-2.0
 Summary:        MPU9250 IMU sample code
 Group:          Application Framework/Libraries
 Source0:        %{name}-%{version}.tar.gz
@@ -20,7 +20,7 @@ MPU9250 IMU sample code package
 CFLAGS="$CFLAGS -fpic"
 
 
-%cmake .  
+%cmake . -DLIBDIR=%{_libdir}
 
 %__make %{?_smp_mflags}
 
@@ -34,7 +34,8 @@ ldconfig
 ldconfig
 
 %files
-#%{_includedir}/*
-#%{_libdir}/*.so
-#%{_bindir}/*
-#%{_datadir}/mpu9250/*
+%{_includedir}/*
+%{_libdir}/*.so
+%{_bindir}/*
+%{_datadir}/mpu9250/*
+%{_sysconfdir}/init.d/mpu9250.sh

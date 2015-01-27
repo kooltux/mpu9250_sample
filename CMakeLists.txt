@@ -21,3 +21,4 @@ ADD_SUBDIRECTORY( thirdparty )
 ADD_SUBDIRECTORY( src )
 
 INSTALL(FILES data/mpu9250.sh DESTINATION /etc/init.d/)
+INSTALL(FILES data/RTIMULib.ini DESTINATION share/mpu9250/)
