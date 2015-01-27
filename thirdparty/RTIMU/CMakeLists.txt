@@ -1,0 +1,47 @@
+add_custom_target(RTIMULib)
+
+set(RTIMU_srcs 
+	RTFusion.cpp
+	RTFusionKalman4.cpp
+	RTFusionRTQF.cpp
+	RTIMUAccelCal.cpp
+	RTIMU.cpp
+	RTIMUGD20HM303D.cpp
+	RTIMUGD20M303DLHC.cpp
+	RTIMUHal.cpp
+	RTIMULSM9DS0.cpp
+	RTIMUMagCal.cpp
+	RTIMUMPU9150.cpp
+	RTIMUMPU9250.cpp
+	RTIMUNull.cpp
+	RTIMUSettings.cpp
+	RTMath.cpp
+)
+
+set( RTIMU_hdrs
+	RTFusion.h
+	RTFusionKalman4.h
+	RTFusionRTQF.h
+	RTIMUAccelCal.h
+	RTIMUCalDefs.h
+	RTIMUGD20HM303D.h
+	RTIMUGD20M303DLHC.h
+	RTIMU.h
+	RTIMUHal.h
+	RTIMULibDefs.h
+	RTIMULib.h
+	RTIMULSM9DS0.h
+	RTIMUMagCal.h
+	RTIMUMPU9150.h
+	RTIMUMPU9250.h
+	RTIMUNull.h
+	RTIMUSettings.h
+	RTMath.cpp
+	RTMath.h
+)
+
+
+ADD_LIBRARY(RTIMU SHARED ${RTIMU_srcs})
+ADD_EXECUTABLE(CAL ${RTIMU_srcs} RTIMULibCal.cpp )
+INSTALL(FILES ${RTIMU_hdrs} DESTINATION include)
+INSTALL(TARGETS RTIMU DESTINATION lib)
