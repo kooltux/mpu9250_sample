@@ -25,7 +25,7 @@ bool IMU::imu_init()
 	imu_strong_warn = 45;
 	
 	// Initialize IMU 
-	imu_settings = new RTIMUSettings((char *)"/usr/share/RTIMULib");
+	imu_settings = new RTIMUSettings((char *)"/usr/share/mpu9250/RTIMULib.ini");
 	imu_imu = RTIMU::createIMU(imu_settings);
 	imu_imu->setAccelEnable(true);
 	imu_imu->setGyroEnable(true);
