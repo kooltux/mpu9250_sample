@@ -65,7 +65,7 @@
 
 #ifndef WIN32
 #include <sys/ioctl.h>
-#include <linux/i2c-dev.h>
+#include <libi2c/i2c-dev.h>
 #include <unistd.h>
 #include <sys/time.h>
 #endif

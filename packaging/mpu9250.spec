@@ -6,6 +6,7 @@ Summary:        MPU9250 IMU sample code
 Group:          Application Framework/Libraries
 Source0:        %{name}-%{version}.tar.gz
 BuildRequires:  cmake
+BuildRequires:  libi2c-devel
 
 
 %description
@@ -33,7 +34,7 @@ ldconfig
 ldconfig
 
 %files
-%{_includedir}/*
-%{_libdir}/*.so*
-%{_bindir}/*
-%{_datadir}/mpu9250/*
+#%{_includedir}/*
+#%{_libdir}/*.so
+#%{_bindir}/*
+#%{_datadir}/mpu9250/*
