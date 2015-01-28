@@ -38,9 +38,9 @@ RTIMUSettings::RTIMUSettings(const char *productType)
 {
     if ((strlen(productType) > 200) || (strlen(productType) == 0)) {
         HAL_ERROR("Product name too long or null - using default\n");
-        strcpy(m_filename, "RTIMULib.ini");
+        strcpy(m_filename, "RTIMULib");
     } else {
-        sprintf(m_filename, "%s.ini", productType);
+        sprintf(m_filename, "%s", productType);
     }
     loadSettings();
 }

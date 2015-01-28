@@ -39,3 +39,5 @@ ldconfig
 %{_bindir}/*
 %{_datadir}/mpu9250/*
 %{_sysconfdir}/init.d/mpu9250.sh
+%attr(0775,root,root) %{_bindir}/mpu9250_sample
+%attr(0775,root,root) %{_sysconfdir}/init.d/mpu9250.sh

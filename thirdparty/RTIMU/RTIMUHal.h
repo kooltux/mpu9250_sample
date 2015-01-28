@@ -65,7 +65,11 @@
 
 #ifndef WIN32
 #include <sys/ioctl.h>
+#ifdef BUILD_HOST
+#include <linux/i2c-dev.h>
+#else
 #include <libi2c/i2c-dev.h>
+#endif
 #include <unistd.h>
 #include <sys/time.h>
 #endif

@@ -27,10 +27,20 @@ bool IMU::imu_init()
 	// Initialize IMU 
 	imu_settings = new RTIMUSettings((char *)"/usr/share/mpu9250/RTIMULib.ini");
 	imu_imu = RTIMU::createIMU(imu_settings);
+	if(!imu_imu)
+	{
+		printf("Cannot create IMU\n");
+		exit(1);
+	}
 	imu_imu->setAccelEnable(true);
 	imu_imu->setGyroEnable(true);
 	imu_imu->setCompassEnable(false);
-	imu_imu->IMUInit();
+	
+	if(!imu_imu->IMUInit())
+	{
+		printf("Cannot initialize IMU\n");
+		exit(1);
+	}
 	
 	// Config and launch grab thread
 	pthread_attr_init(&attr);
@@ -63,7 +73,10 @@ void* thread_IMU(void* data)
 
 void IMU::setReadTempo(int us)
 {
-	imu_us_delay = us;
+	if(us < 10)
+		imu_us_delay = 10;
+	else
+		imu_us_delay = us;
 }
 
 void IMU::setLowWarningLvl(int llvl)
