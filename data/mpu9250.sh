@@ -10,7 +10,7 @@ STRONG_WARN_LVL=45
 case "$1" in
   start)
 	if [[ -z "$MOD" ]]; then
-            insmod /usr/share/low_speed_spidev.ko
+            insmod /usr/bin/low_speed_spidev.ko
 	fi
 	/usr/bin/mpu9250_sample -d $DELAY -l $LOW_WARN_LVL -h $STRONG_WARN_LVL
 	;;
