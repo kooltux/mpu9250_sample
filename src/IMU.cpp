@@ -156,6 +156,7 @@ void IMU::computePose()
 		gyr[0], gyr[1], gyr[2],
 		mag[0], mag[1], mag[2],
 		warnings[0], warnings[1]);
+	fflush(stdout);
 
 	pthread_mutex_unlock(&m_mutexIMU);
 }
